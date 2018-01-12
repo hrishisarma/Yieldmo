@@ -1,0 +1,12 @@
+Answer 1:
+
+SELECT CookieID, MIN(ViewTimeStamp) as FirstVisit, MAX(ViewTimeStamp) as LastVisit FROM Logs 
+WHERE LocationID IN (SELECT LocationID FROM Location WHERE State=‘New York’) 
+AND ViewTimeStamp BETWEEN (‘2017-08-01 00:00:00.001’) AND (‘2017-08-31 23:59:59.059’)
+AND SiteID IN (SELECT SiteID FROM Site
+WHERE SiteName<>’CNN’)
+
+Answer 2:
+
+SELECT UserID FROM UserAddress
+WHERE State=‘New York’ AND Start_DateTime> (‘2017-05-01) AND End_DateTime<(‘2017-08-31’)
